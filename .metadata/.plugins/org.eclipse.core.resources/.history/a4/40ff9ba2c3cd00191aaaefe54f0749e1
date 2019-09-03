@@ -1,0 +1,38 @@
+package maps.veys;
+
+import java.awt.Insets;
+
+import javax.swing.JFrame;
+
+public class Oyun extends JFrame{
+	
+	static int WIDTH  = 640;
+	static int HEIGHT = 480;
+	
+	Insets icKisim;
+	
+	public static void main(String[] args) {
+		Oyun oyun = new Oyun();
+		oyun.dongu();
+	}
+
+	private void dongu() {
+		baslangic();
+		
+	}
+
+	private void baslangic() {
+		setTitle("GAME");
+	
+		icKisim = getInsets();
+		setSize(icKisim.left + WIDTH + icKisim.right
+				,icKisim.top + HEIGHT + icKisim.bottom);
+
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
+		setLocationRelativeTo(null);
+		setVisible(true);
+	}
+	
+
+}

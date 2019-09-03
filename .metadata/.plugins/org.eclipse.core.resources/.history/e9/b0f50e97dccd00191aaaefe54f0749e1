@@ -1,0 +1,35 @@
+package maps.veys;
+
+import java.awt.Graphics;
+
+public class Top {
+	
+	double x=0;
+	double y=0;
+	
+	int gen = 10;
+	
+	
+	double fx = 0;
+	double fy = 0;
+	
+	double g = 30;
+	
+	public void guncelle(double katSayi){
+		
+		x = x + fx * katSayi+1;
+		y = y + fy * katSayi+1;
+		
+		fy = fy + g;
+		
+		if(y < 460 ){
+			fy = - fy;
+		}
+	}
+	
+	public void ekranaCiz(Graphics g){
+		
+			g.drawOval((int) x ,(int) y, gen, gen);
+	}
+
+}

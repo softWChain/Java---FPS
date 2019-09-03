@@ -1,0 +1,87 @@
+package maps.veys;
+
+import java.awt.Graphics;
+import java.awt.Insets;
+import java.awt.image.BufferedImage;
+
+import javax.swing.JFrame;
+
+public class Oyun extends JFrame{
+	
+	static int WIDTH  = 640;
+	static int HEIGHT = 480;
+	
+	BufferedImage gorselBuffer;
+	
+	Insets icKisim;
+	
+	public static void main(String[] args) {
+		Oyun oyun = new Oyun();
+		oyun.dongu();
+	}
+
+	private void dongu() {
+		baslangic();
+		
+		//OyunMantýðýgüncelle (Update)
+		oyunMantýgýGüncelle();
+		
+		//OyunGrafiðiGüncelle (Render)
+		
+		oyunGrafigiGüncelle();
+		
+	}
+
+	private void oyunGrafigiGüncelle() {
+		
+		Graphics frameGrafigi = getGraphics();
+		
+		Graphics bufferGrafigi = gorselBuffer.getGraphics();
+		
+		//Buffer Güncelle
+		
+		bufferGrafigi.fillRect(50, 50, 20, 20);
+		
+		
+		//Buffer frame çevir
+		frameGrafigi.drawImage(gorselBuffer, icKisim.left, icKisim.top, this);
+		
+	}
+
+	private void oyunMantýgýGüncelle() {
+		
+		
+	}
+	
+	
+
+	private void baslangic() {
+		setTitle("GAME");
+		
+		icKisim = getInsets();
+		
+		setSize(icKisim.left + WIDTH + icKisim.right
+				,icKisim.top + HEIGHT + icKisim.bottom);
+
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
+		setLocationRelativeTo(null);
+		setVisible(true);
+		
+		gorselBuffer = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
